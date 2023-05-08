@@ -1,0 +1,39 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  h3{
+    text-align: center;
+  padding-top: 20px;
+  color: rgb(250, 6, 47);
+  }
+  @media(max-width: 100px){
+    .container1{
+      display: flex;
+    }
+  }
+  /* @media(max-width: 480px){
+    .container1{
+      display: flex;
+    }
+  } */
+  @media (max-width: 600px) {
+
+    .class2 { 
+        width: 100% !important;
+        overflow-x: auto; 
+    }
+
+    th, td {min-width: 200px; }
+}
+

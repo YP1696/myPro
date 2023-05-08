@@ -1,0 +1,48 @@
+<div class="nav">
+  <mat-toolbar color="primary" class="mat-elevation-z8" fxLayoutAlign="space-between center" style="width: 100%;">
+  
+    <meta name="viewport" content="width=device-width,initial-scal=1.0">
+      <span >Left Right Mind</span>
+      <div class="space"></div>
+     <div fxHide.xs>
+      <a mat-button routerLink="home" routerLinkActive="active">Home</a>
+      <a mat-button routerLink="assets" routerLinkActive="active">Assets</a>
+      <a mat-button routerLink="employees" routerLinkActive="active">Employees</a>
+      <a mat-button routerLink="department" routerLinkActive="active">Deleted Employees</a>
+      <a mat-button routerLink="organization" routerLinkActive="active">Organization</a>
+     </div>
+      <a mat-raised-button color="accent" routerLink="signup">Signup</a>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" fxHide.gt-xs>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div fxLayout="column">
+      <mat-menu #menu="matMenu" >
+      
+        <div><a mat-button routerLink="home" routerLinkActive="active">Home</a></div>  
+      <div><a mat-button routerLink="assets" routerLinkActive="active">Assets</a></div>   
+      <div><a mat-button routerLink="employees" routerLinkActive="active">Employees</a></div>
+      <div><a mat-button routerLink="department" routerLinkActive="active">Deleted Employees</a> </div>
+      <div><a mat-button routerLink="organization" routerLinkActive="active">Organization</a></div>
+      
+    </mat-menu>
+    </div>
+
+    
+
+    
+    <!-- <mat-sidenav-container>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <a (click)="sidenav.toggle()" mat-list mat-list-item routerLink="home" routerLinkActive="active">Home</a>
+          <a mat-list routerLink="assets" routerLinkActive="active">Assets</a>
+          <a mat-button routerLink="employees" routerLinkActive="active">Employees</a>
+          <a mat-button routerLink="department" routerLinkActive="active">Deleted Employees</a>
+          <a mat-button routerLink="organization" routerLinkActive="active">Organization</a>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container> -->
+</div>
+
+ 

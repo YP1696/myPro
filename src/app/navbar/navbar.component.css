@@ -1,0 +1,14 @@
+.space{
+    flex: 1 1 auto;
+}
+.nav{
+    background-color: rgb(86, 86, 241);
+    width: 100%;
+}
+
+@media(max-width: 768px){
+    .nav{
+        display: flex;
+    }
+    
+}

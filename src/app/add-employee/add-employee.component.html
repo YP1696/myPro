@@ -1,0 +1,169 @@
+
+
+<div class="example-container" fxFlex.xs="85" >
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h3>Add Employees</h3> 
+  </div>
+  <form [formGroup]="employeesForm" >
+    <div fxLayout="row" fxLayout.xs="column">
+      <div fxFlex="45">
+         <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label for="name">Enter your Name</mat-label>
+      <input formControlName="name" required matInput type="text" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && employeesForm?.controls?.names?.errors}"/>
+      <!-- <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">First Name is required</div>
+    </div> -->
+      <!-- <span class="error" style="color: red;" *ngIf="name.invalid && name.touched">name is Invalid</span> -->
+      <!-- <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Name is required</div>
+    </div> -->
+      <!-- <mat-hint style="color:red">
+        <strong>Name is required</strong>
+      </mat-hint> -->
+      <mat-error>
+        <span *ngIf="
+        (submitted || employeesForm.controls['name'].touched) && 
+          employeesForm.controls.name.errors?.required
+          "><strong>Required.</strong>
+        </span>
+      </mat-error>
+      <mat-error>
+        <span *ngIf="
+          employeesForm.controls['name'].errors?.name &&
+          employeesForm.controls['name'].touched
+          "><strong>Invalid Name.</strong>
+        </span>
+      </mat-error>
+    </mat-form-field>
+      </div> 
+    <div fxFlex="45">
+      <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Enter youe Email*</mat-label>
+      <input formControlName="email" matInput type="email" placeholder="Email">
+      <mat-error>
+        <span *ngIf="
+        (submitted || employeesForm.controls['email'].touched ) &&
+          employeesForm.controls['email'].errors?.required
+          "><strong>Required.</strong>
+        </span>
+      </mat-error>
+      <mat-error>
+        <span *ngIf="
+          employeesForm.controls['email'].errors?.email &&
+          employeesForm.controls['email'].touched
+          "><strong>Invalid Email.</strong>
+        </span>
+      </mat-error>
+      <!-- <span class="error" style="color: red;" *ngIf="email.invalid && email.touched">email is Invalid</span> -->
+    </mat-form-field>
+    </div>
+   </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayotAlign="flex-end start">
+      <div fxFlex="45">
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Enter your Contact Number*</mat-label>
+          <input matInput appDigitOnly maxlength="10"
+            id="Input" formControlName="contactno" type="text" 
+            placeholder="999-999-9999" mask="000-000-0000">
+                  <!-- (keydown)="onKeyPress($event)" -->
+    
+          <mat-error>
+            <span *ngIf="
+            (submitted || employeesForm.controls['contactno'].touched) &&
+              employeesForm.controls['contactno'].errors?.required
+              "><strong>Required.</strong>
+            </span>
+          </mat-error>
+           <mat-error>
+            <span *ngIf="
+              employeesForm.controls['contactno'].errors?.contactno &&
+              employeesForm.controls['contactno'].touched
+              "><strong>Invalid DepartContact Number.</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div fxFlex="45">
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Enter your Department*</mat-label>
+          <input formControlName="department" matInput type="text"
+            placeholder="Department">
+          <!-- <span class="error" style="color: red;" *ngIf="department.invalid && department.touched">Department is Invalid</span> -->
+          <mat-error>
+            <span *ngIf="
+            (submitted || employeesForm.controls['department'].touched) &&
+              employeesForm.controls['department'].errors?.required 
+              "><strong>Required.</strong>
+            </span>
+          </mat-error>
+          <mat-error>
+            <span *ngIf="
+              employeesForm.controls['department'].errors?.department &&
+              employeesForm.controls['department'].touched
+              "><strong>Invalid Department.</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+   <div fxLayout="row" fxLayout.xs="column" fxLayotAlign="flex-end start">
+    <div fxFlex="45">
+      <mat-form-field class="date" appearance="fill" floatLabel="always">
+        <mat-label>Joinning Date*</mat-label>
+        <input formControlName="joiningdate" matInput [matDatepicker]="picker"
+          placeholder="Date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>
+          <span *ngIf="
+          (submitted || employeesForm.controls['joiningdate'].touched) &&
+            employeesForm.controls['joiningdate'].errors?.required 
+            "><strong>Required.</strong>
+          </span>
+        </mat-error>
+        <mat-error>
+          <span *ngIf="
+            employeesForm.controls['joiningdate'].errors?.joiningdate &&
+            employeesForm.controls['joiningdate'].touched
+            "><strong>Invalid joinningdate.</strong>
+          </span>
+        </mat-error>
+      </mat-form-field>
+  
+    </div>
+    <div fxFlex="45" fxLayoutAlign="space-around center">
+      <mat-radio-group formControlName="gender" aria-label="Select an option" 
+      fxLayout.xs="row" style="padding-left: 76px; padding-top: 25px;">
+      <label id="example-radio-group-label" style="padding-left: 2px;">Gender:</label>
+        <mat-radio-button *ngFor="let gender of genderList" [value]="gender">
+          {{gender}}</mat-radio-button>
+      <mat-error>
+        <span *ngIf="
+          employeesForm.controls['gender'].errors?.required &&
+          employeesForm.controls['gender'].touched
+          "><strong>Required.</strong>
+        </span>
+      </mat-error>
+      <mat-error>
+        <span *ngIf="
+          employeesForm.controls['gender'].errors?.gender &&
+          employeesForm.controls['gender'].touched
+          "><strong>Invalid Name.</strong>
+        </span>
+      </mat-error>
+    </mat-radio-group>  
+    </div>
+   </div>
+    
+    <div mat-dialog-action [align]="'center'" fxAlign="center center">
+      <!-- <button mat-raised-button color="warn" mat-dialog-close>Close</button> -->
+      <button type="submit" style="margin-left:8px; margin-top: 15px ;" mat-raised-button color="primary" (click)="add()">{{actButton}}</button>
+      <br>
+      
+    </div>
+  </form>
+</div>
+
+

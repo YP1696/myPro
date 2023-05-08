@@ -1,0 +1,58 @@
+<p>Add Employees Form</p>
+<div mat-dialog-content class="namecontainer">
+  <form [formGroup]="employeesForm">
+    <mat-form-field appearance="outline">
+      <mat-label >Employees Name*</mat-label>
+      <input formControlName="name" matInput placeholder="Enter Employee Name*">
+      <span class="error" style="color: red;" *ngIf="name.invalid && name.touched">name is Invalid</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email*</mat-label>
+      <input formControlName="email" matInput placeholder="email*">
+      <span class="error" style="color: red;" *ngIf="email.invalid && email.touched">email is Invalid</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Number*</mat-label>
+      <input type="number" formControlName="contactno" maxlength="10" matInput placeholder="Enter Contact Number*">
+      <span class="error" style="color: red;" *ngIf="contactno.invalid && contactno.touched">Contact Number is
+        invalid</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Department*</mat-label>
+      <input formControlName="department" matInput placeholder="Department Name*">
+      <span class="error" style="color: red;" *ngIf="department.invalid && department.touched">Department is
+        Invalid</span>
+
+    </mat-form-field>
+    <div class="DateBox">
+      <mat-form-field appearance="outline">
+        <!-- <mat-label>Choose a date</mat-label> -->
+        <input formControlName="joiningdate" matInput [matDatepicker]="picker" placeholder="Date*">
+        <span class="error" style="color: red;" *ngIf="joiningdate.invalid && joiningdate.touched">Date is
+          Invalid</span>
+        <mat-datepicker-toggle matISuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <label for="">
+      <h3>Gender*</h3>
+    </label>
+    <mat-radio-group formControlName="gender" class="example-radio-group">
+      <mat-radio-button class="example-radio-button" *ngFor="let gender of genderList" [value]="gender">
+        {{gender}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </form>
+  <!-- <section>
+        <div class="example-label">Raised</div> 
+        <div class="example-button-row" [align]="end">
+          <button mat-raised-button color="warn">Close</button>
+          <button mat-raised-button color="primary">Save</button>
+        </div>
+      </section> -->
+
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left:8px;" mat-raised-button color="primary" (click)="add()">{{actButton}}</button>
+</div>
